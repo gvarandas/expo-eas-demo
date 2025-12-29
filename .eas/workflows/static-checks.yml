@@ -1,0 +1,30 @@
+name: Static Checks
+
+jobs:
+  Lint:
+    name: Lint
+    steps:
+      - uses: eas/checkout
+      - uses: eas/install_node_modules
+      - name: Run lint
+        run: npm run lint
+
+  Test:
+    steps:
+      - uses: eas/checkout
+      - uses: eas/install_node_modules
+      - name: Run tests
+        run: npm run test
+
+  Type Check:
+    steps:
+      - uses: eas/checkout
+      - uses: eas/install_node_modules
+      - name: Run typecheck
+        run: npm run typecheck
+  
+  build:
+    name: Install node modules
+    steps:
+      - uses: eas/checkout
+      - uses: eas/install_node_modules
